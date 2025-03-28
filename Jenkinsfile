@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     environment {
         SECRET_VAR = credentials('secret_text')
     }
