@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mytriotasksql
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mytriotasksql # must be the same value as the label in the template
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        app: mytriotasksql # this label is assigned to each pod in the set
+    spec:
+      containers:
+      - name: mytriotasksql
+        image: chrisreeves1/mytriotasksql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        - name: MYSQL_DATABASE
+          value: flask-db
+        ports:
+        - containerPort: 3306

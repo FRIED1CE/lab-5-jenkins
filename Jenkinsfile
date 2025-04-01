@@ -8,7 +8,7 @@ pipeline{
                     sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'
                     sh 'chmod u+x ./kubectl'
                     sh './kubectl get nodes'
-                    sh './kubectl create -f pod.yaml'
+                    sh './kubectl create -f pod_run'
                     sh './kubectl get pods'
                     }
                 }    
