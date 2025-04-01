@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mytriotaskflaskapp
-  namespace: dev-manifest
 spec:
   replicas: 2
   selector:
